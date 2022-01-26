@@ -3,8 +3,8 @@ local mutedPlayers = {}
 -- we can't use GetConvarInt because its not a integer, and theres no way to get a float... so use a hacky way it is!
 local volumes = {
 	-- people are setting this to 1 instead of 1.0 and expecting it to work.
-	['radio'] = tonumber(GetConvar('voice_defaultRadioVolume', '0.3')) + 0.0,
-	['phone'] = tonumber(GetConvar('voice_defaultPhoneVolume', '0.6')) + 0.0,
+	['radio'] = GetConvarInt('voice_defaultRadioVolume', 30),
+	['phone'] = GetConvarInt('voice_defaultPhoneVolume', 60),
 }
 
 radioEnabled, radioPressed, mode = true, false, GetConvarInt('voice_defaultVoiceMode', 2)
